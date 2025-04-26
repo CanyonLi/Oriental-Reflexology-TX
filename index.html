@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oriental Reflexology - Warm and soothing spa experience in Richardson, TX">
+  <title>Oriental Reflexology | Richardson, TX</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FFE5D0;
+      --color-text: #4E342E;
+      --color-accent: #D84343;
+      --color-secondary: #455A64;
+      --color-white: #FFF8F0;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      line-height: 1.5;
+      color: var(--color-text);
+      background: var(--color-white);
+    }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+      transition: padding 0.3s;
+    }
+    header.shrink { padding: 0.5rem 2rem; }
+    header .container {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { font-weight: 600; color: var(--color-secondary); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: url('TX MSG.png') center/cover no-repeat;
+      height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 4rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(78,52,46,0.6), rgba(69,90,100,0.6));
+    }
+    .hero h1 {
+      position: relative;
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      color: var(--color-white);
+      letter-spacing: 0.1em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+    h2 { font-family: var(--font-heading); font-size: 2.25rem; margin-bottom: 1rem; color: var(--color-secondary); }
+    p { margin-bottom: 1rem; }
+
+    /* Services */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .service {
+      background: var(--color-white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .service h3::before {
+      content: '';
+      display: block;
+      width: 40px; height: 40px;
+      background: url('icon-placeholder.svg') center/contain no-repeat;
+      margin: 0 auto 0.5rem;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: var(--color-secondary);
+      background-image: url('grain-texture.png');
+      color: var(--color-white);
+      text-align: center;
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+    }
+    .cta-banner h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .cta-banner p { margin-bottom: 1.25rem; }
+    .cta-banner .btn {
+      background: var(--color-white);
+      color: var(--color-secondary);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-banner .btn:hover {
+      background: #f5f5f5;
+      transform: translateY(-3px);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .pricing-card {
+      background: var(--color-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInScale 0.6s forwards;
+    }
+    .pricing-card.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 1rem; left: 50%; transform: translateX(-50%);
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+    .pricing-card .top {
+      background: var(--color-bg);
+      padding: 1rem;
+      text-align: center;
+    }
+    .pricing-card .top .price {
+      font-size: 2.5rem;
+      color: var(--color-accent);
+      line-height: 1;
+    }
+    .pricing-card .top .price sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+    }
+    .pricing-card ul { list-style: none; padding: 1rem; color: var(--color-text); }
+    .pricing-card li { margin: 0.75rem 0; }
+    .pricing-card .btn-plan {
+      display: block;
+      background: var(--color-accent);
+      color: var(--color-white);
+      text-align: center;
+      padding: 0.75rem;
+      margin: 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .pricing-card .btn-plan:hover {
+      background: #bf2e3a;
+    }
+    @keyframes fadeInScale {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Contact */
+    #contact { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    #contact iframe { width: 100%; max-width: 600px; height: 350px; border: none; border-radius: 8px; }
+    .contact-info { text-align: center; }
+    .contact-info a { color: var(--color-accent); }
+
+    /* Footer */
+    footer {
+      background: #f4f4f4;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--color-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="logo">Oriental Reflexology</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Relax, Rejuvenate, Revive</h1>
+  </div>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Us</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+        <img src="interior.jpg" alt="Cozy spa interior" style="flex:1; min-width: 280px; border-radius:8px;" />
+        <p style="flex:1; min-width: 280px;">Welcome to Oriental Reflexology, your premier destination for therapeutic and relaxing bodywork in Richardson, TX. Our skilled therapists specialize in a range of techniques designed to relieve tension, reduce stress, and restore your natural balance. Book your personalized session today and feel the warmth of our care.</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <div class="service"><h3>Swedish Massage</h3><p>Gentle, full-body relaxation massage to improve circulation and ease muscle tension.</p></div>
+        <div class="service"><h3>Deep Tissue Massage</h3><p>Targeted pressure to release chronic muscle tension and improve flexibility.</p></div>
+        <div class="service"><h3>Thai Massage</h3><p>Traditional stretching and compression techniques to energize the body and boost energy flow.</p></div>
+        <div class="service"><h3>Foot Reflexology</h3><p>Focused foot massage to promote healing and relaxation throughout the body by stimulating reflex points.</p></div>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <h2>Book your appointment now with few clicks</h2>
+      <p>No more misunderstanding over the phone, let's book online.</p>
+      <a class="btn" href="tel:+14693357606">Book An Appointment</a>
+    </div>
+
+    <section id="pricing">
+      <h2>Priced Massage Solutions</h2>
+      <p>Choose the perfect session length tailored to your needs.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card"><div class="top"><div class="price"><sup>$</sup>50</div></div><ul><li>30 mins</li><li>45 mins — $60</li></ul><a class="btn-plan" href="tel:+14693357606">Select Plan</a></div>
+        <div class="pricing-card popular"><div class="top"><div class="price"><sup>$</sup>70</div></div><ul><li>60 mins</li></ul><a class="btn-plan" href="tel:+14693357606">Select Plan</a></div>
+        <div class="pricing-card"><div class="top"><div class="price"><sup>$</sup>120</div></div><ul><li>90 mins</li></ul><a class="btn-plan" href="tel:+14693357606">Select Plan</a></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact & Location</h2>
+      <iframe src="https://www.google.com/maps?q=648+W+Campbell+Rd+Suite+D+Richardson+TX+75080&output=embed" loading="lazy"></iframe>
+      <div class="contact-info">
+        <p><strong>Address:</strong> <a href="https://goo.gl/maps/yourmaplink" target="_blank">648 W Campbell Rd, Suite D, Richardson, TX 75080</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+14693357606">(469) 335-7606</a></p>
+        <p><strong>Hours:</strong> Mon–Sun: 10:00 AM – 10:00 PM</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>License # 12345678  |  Languages: EN ES | Follow us: [Social Icons]</p>
+    <p>&copy; 2025 Oriental Reflexology. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('shrink', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
