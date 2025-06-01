@@ -247,10 +247,12 @@
     <h2>About Us</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
       <picture style="flex:1; min-width: 280px;">
-        <source srcset="interior.webp" type="image/webp">
-        <img src="interior.jpg" loading="lazy" alt="Cozy spa interior" style="width:100%; border-radius:8px;"/>
+        <!-- Fallback to PNG -->
+        <img src="Poster1.png" loading="lazy" alt="Spa promotion poster" style="width:100%; border-radius:8px;"/>
       </picture>
-      <p style="flex:1; min-width: 280px;">Welcome to Oriental SPA, your premier destination for therapeutic and relaxing bodywork in Richardson, TX. Our skilled therapists specialize in a range of techniques designed to relieve tension, reduce stress, and restore your natural balance. Book your personalized session today and feel the warmth of our care.</p>
+      <div style="flex:1; min-width: 280px;">
+        <p>Welcome to <strong>Oriental SPA</strong>, your premier destination for therapeutic and relaxing bodywork in Richardson, TX. Our skilled therapists specialize in a range of techniques designed to relieve tension, reduce stress, and restore your natural balance. Book your personalized session today and feel the warmth of our care.</p>
+      </div>
     </div>
   </section>
   <section id="services">
