@@ -1,262 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Oriental SPA - Warm and soothing spa experience in Richardson, TX"/>
-<title>Oriental SPA | Richardson, TX</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-<!-- Open Graph & SEO -->
-<meta property="og:title" content="Oriental SPA - Relax, Rejuvenate"/>
-<meta property="og:description" content="Warm and soothing spa experience in Richardson, TX"/>
-<meta property="og:image" content="cover.webp"/>
-<meta property="og:type" content="business.business"/>
-<meta property="business:contact_data:street_address" content="648 W Campbell Rd Suite D"/>
-<meta property="business:contact_data:locality" content="Richardson"/>
-<meta property="business:contact_data:region" content="TX"/>
-<meta property="business:contact_data:postal_code" content="75080"/>
-<meta property="business:contact_data:phone_number" content="+1 469-335-7606"/>
-<style>
-  :root {
-    --color-bg: #FFE5D0;
-    --color-text: #4E342E;
-    --color-accent: #D84343;
-    --color-secondary: #455A64;
-    --color-white: #FFF8F0;
-    --font-body: 'Inter', sans-serif;
-    --font-heading: 'Playfair Display', serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:var(--font-body);
-    line-height:1.5;
-    color:var(--color-text);
-    background:var(--color-white);
-  }
-  a{color:var(--color-accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Oriental SPA – Warm and soothing spa experience in Richardson, TX"/>
+  <title>Oriental SPA | Richardson, TX</title>
 
-  /* Header */
-  header{
-    position:fixed;top:0;left:0;width:100%;
-    background:rgba(255,255,255,0.8);
-    backdrop-filter:blur(10px);
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    z-index:100;
-    transition:padding .3s;
-  }
-  header.shrink{padding:.5rem 2rem;}
-  header .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;}
-  .logo{font-family:var(--font-heading);font-size:1.75rem;color:var(--color-accent);}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
 
-  /* Mobile menu */
-  #menu-toggle{display:none;font-size:1.75rem;background:none;border:none;color:var(--color-secondary);cursor:pointer;}
-  nav ul{list-style:none;display:flex;gap:1.5rem;}
-  nav a{font-weight:600;color:var(--color-secondary);}
-  @media(max-width:640px){
-    nav ul{display:none;flex-direction:column;gap:1rem;margin-top:.5rem;}
-    #menu-toggle{display:block;}
-    nav.open ul{display:flex;}
-  }
+  <!-- Open Graph & Local Business SEO -->
+  <meta property="og:title" content="Oriental SPA – Relax, Rejuvenate"/>
+  <meta property="og:description" content="Warm, healing massage experience in Richardson, TX"/>
+  <meta property="og:image" content="TX MSG.webp"/>
+  <meta property="og:type" content="business.business"/>
+  <meta property="business:contact_data:street_address" content="648 W Campbell Rd Suite D"/>
+  <meta property="business:contact_data:locality" content="Richardson"/>
+  <meta property="business:contact_data:region" content="TX"/>
+  <meta property="business:contact_data:postal_code" content="75080"/>
+  <meta property="business:contact_data:phone_number" content="+1 469‑335‑7606"/>
 
-  /* Hero */
-  .hero{
-    position:relative;
-    background:url('TX MSG.png') center/cover no-repeat;
-    height:100vh;
-    display:flex;align-items:center;justify-content:center;
-    margin-top:4rem;
-  }
-  .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(rgba(78,52,46,.6),rgba(69,90,100,.6));}
-  .hero-content{position:relative;z-index:2;text-align:center;}
-  .hero-content h1{font-family:var(--font-heading);font-size:3.5rem;color:var(--color-white);letter-spacing:.1em;text-shadow:0 1px 3px rgba(0,0,0,.3);}
-  .hero-content .btn-cta{margin-top:2rem;}
-  @media(min-width:1440px){.hero-content h1{font-size:4.5rem;}}
+  <style>
+    /* ---------- 设计令牌 ---------- */
+    :root{
+      --color-bg:#FFE5D0;
+      --color-text:#4E342E;
+      --color-accent:#D84343;
+      --color-secondary:#455A64;
+      --color-white:#FFF8F0;
+      --font-body:'Inter',sans-serif;
+      --font-heading:'Playfair Display',serif;
+    }
 
-  .container{max-width:960px;margin:2rem auto;padding:0 1rem;}
-  h2{font-family:var(--font-heading);font-size:2.25rem;margin-bottom:1rem;color:var(--color-secondary);}  p{margin-bottom:1rem;}
+    /* ---------- Reset ---------- */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:var(--font-body);
+      color:var(--color-text);
+      background:var(--color-white);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--color-accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
 
-  /* Services */
-  .services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
-  .service{background:var(--color-white);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:1.5rem;text-align:center;transition:transform .3s,box-shadow .3s;}
-  .service:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12);}  .service h3::before{content:'';display:block;width:40px;height:40px;background:url('icon-placeholder.svg') center/contain no-repeat;margin:0 auto .5rem;}
+    /* ---------- Header ---------- */
+    header{
+      position:fixed;top:0;left:0;width:100%;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(10px);
+      box-shadow:0 2px 5px rgba(0,0,0,.1);
+      z-index:100;
+      transition:padding .3s;
+    }
+    header.shrink{padding:.5rem 1.25rem;}
+    header .container{
+      max-width:960px;margin:auto;
+      padding:1rem 1.5rem;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .logo{font-family:var(--font-heading);font-size:1.75rem;color:var(--color-accent);}
+    #menu-toggle{display:none;font-size:1.75rem;background:none;border:none;color:var(--color-secondary);cursor:pointer;}
+    nav ul{display:flex;gap:1.5rem;list-style:none;}
+    nav a{font-weight:600;color:var(--color-secondary);}
+    @media(max-width:640px){
+      nav ul{display:none;flex-direction:column;gap:1rem;}
+      nav.open ul{display:flex;}
+      #menu-toggle{display:block;}
+    }
 
-  /* CTA Banner */
-  .cta-banner{background:var(--color-secondary);background-image:url('grain-texture.png');color:var(--color-white);text-align:center;padding:3rem 1rem;margin:3rem 0;}
-  .cta-banner h2{font-family:'Brush Script MT',cursive;font-size:2.5rem;margin-bottom:.5rem;}
-  .cta-banner p{margin-bottom:1.25rem;}
-  .cta-banner .btn{background:var(--color-white);color:var(--color-secondary);padding:1rem 2rem;border-radius:10px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:background .3s,transform .3s;}
-  .cta-banner .btn:hover{background:#f5f5f5;transform:translateY(-3px);}
+    /* ---------- Hero ---------- */
+    .hero{
+      position:relative;height:100vh;margin-top:4rem;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+    }
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(rgba(78,52,46,.55),rgba(69,90,100,.55));z-index:1;}
+    .hero-content{
+      position:relative;z-index:2;text-align:center;color:var(--color-white);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;
+    }
+    .hero-content h1{font-family:var(--font-heading);font-size:3.5rem;letter-spacing:.1em;text-shadow:0 1px 3px rgba(0,0,0,.3);}
+    .btn-cta{margin-top:1.5rem;padding:.75rem 1.5rem;background:var(--color-accent);color:#fff;border-radius:9999px;font-weight:600;transition:background .25s;}
+    .btn-cta:hover{background:#bf2e3a;}
 
-  /* Pricing */
-  .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:.75rem 0;}
-  .price-cards .card{padding:1rem;border-radius:8px;background:var(--color-bg);text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);transition:transform .2s;}
-  .price-cards .card:hover{transform:translateY(-4px);}  .price-cards span{display:block;font-size:.95rem;color:var(--color-secondary);}  .price-cards strong{display:block;font-size:1.2rem;margin:.25rem 0;color:var(--color-accent);}  .price-cards em{display:block;font-size:.8rem;color:var(--color-text);}  
+    /* ---------- 通用布局 ---------- */
+    main.container{max-width:960px;margin:2rem auto;padding:0 1rem;}
+    h2{font-family:var(--font-heading);font-size:2.25rem;color:var(--color-secondary);margin-bottom:1rem;}
+    p{margin-bottom:1rem;}
 
-  /* Generic CTA Button */
-  .btn-cta{display:inline-block;margin:.5rem;padding:.75rem 1.5rem;background:var(--color-accent);color:#fff;border-radius:9999px;font-weight:600;transition:background .3s;}
-  .btn-cta:hover{background:#bf2e3a;}
+    /* ---------- Gallery ---------- */
+    .gallery{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;margin:1.25rem 0;}
+    .gallery img{flex:0 0 280px;height:180px;object-fit:cover;border-radius:8px;scroll-snap-align:start;}
 
-  /* Back to Top */
-  #toTop{position:fixed;right:1rem;bottom:1rem;display:none;padding:.6rem .8rem;border:none;border-radius:50%;background:var(--color-secondary);color:#fff;font-size:1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.15);cursor:pointer;}
-  #toTop.show{display:block;}
+    /* 顺序淡入动画 */
+    @keyframes fadeIn{to{opacity:1;transform:none;}}
+    .fade-seq img{
+      opacity:0;transform:translateY(20px);
+      animation:fadeIn .6s ease forwards;
+    }
+    .fade-seq img:nth-child(1){animation-delay:.1s;}
+    .fade-seq img:nth-child(2){animation-delay:.3s;}
+    .fade-seq img:nth-child(3){animation-delay:.5s;}
+    .fade-seq img:nth-child(4){animation-delay:.7s;}
 
-  /* Booking */
-  #booking{margin-top:3rem;}
-  #booking .booking-wrapper{background:var(--color-secondary);padding:3rem 1.5rem;border-radius:12px;color:var(--color-white);box-shadow:0 6px 20px rgba(0,0,0,.1);text-align:center;}
-  #booking .booking-wrapper h2{font-family:var(--font-heading);font-size:2.5rem;margin-bottom:.5rem;}
-  #booking .booking-wrapper p{font-size:1.1rem;margin-bottom:1.5rem;}
-  #booking .booking-wrapper a.btn-cta{margin-bottom:2rem;display:inline-block;}
-  #booking iframe{width:100%;height:650px;border:none;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.1);margin-top:1.5rem;}
+    /* ---------- Reviews ---------- */
+    .reviews{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .review{background:var(--color-white);padding:1rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .stars{color:#FFC107;font-size:1.1rem;margin-bottom:.5rem;letter-spacing:.1rem;}
 
-  /* Contact */
-  #contact{display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
-  #contact iframe{width:100%;max-width:600px;height:350px;border:none;border-radius:8px;}
-  .contact-info{text-align:center;}
+    /* ---------- Services ---------- */
+    .services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+    .service{background:var(--color-white);padding:1.5rem;border-radius:8px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;}
+    .service:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12);}
+    .service h3{margin-bottom:.5rem;font-size:1.1rem;color:var(--color-secondary);}
 
-  /* Footer */
-  footer{background:#f4f4f4;text-align:center;padding:1.5rem;font-size:.9rem;color:var(--color-secondary);}
-</style>
+    /* ---------- Pricing ---------- */
+    .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:.75rem 0;}
+    .card{padding:1rem;border-radius:8px;background:var(--color-bg);text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);transition:transform .2s;}
+    .card:hover{transform:translateY(-4px);}
+    .card span{display:block;font-size:.95rem;color:var(--color-secondary);}
+    .card strong{display:block;font-size:1.2rem;margin:.25rem 0;color:var(--color-accent);}
+    .card em{display:block;font-size:.8rem;color:var(--color-text);}
+
+    /* ---------- Booking ---------- */
+    .booking-wrapper{background:var(--color-secondary);padding:3rem 1.5rem;border-radius:12px;color:var(--color-white);box-shadow:0 6px 20px rgba(0,0,0,.1);text-align:center;}
+    .booking-wrapper a.btn-cta{background:var(--color-white);color:var(--color-secondary);}
+    .booking-wrapper a.btn-cta:hover{background:#f4f4f4;}
+    .booking-wrapper iframe{width:100%;height:650px;border:none;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.1);margin-top:1.5rem;}
+
+    /* ---------- Contact ---------- */
+    #contact{display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+    #contact iframe{width:100%;max-width:600px;height:350px;border:none;border-radius:8px;}
+    .contact-info{text-align:center;}
+
+    /* ---------- Footer & Back‑to‑Top ---------- */
+    footer{background:#f4f4f4;text-align:center;padding:1.5rem;font-size:.9rem;color:var(--color-secondary);}
+    #toTop{position:fixed;right:1rem;bottom:1rem;display:none;padding:.6rem .8rem;border:none;border-radius:50%;background:var(--color-secondary);color:#fff;font-size:1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.15);cursor:pointer;}
+    #toTop.show{display:block;}
+  </style>
 </head>
+
 <body>
-<header id="header">
-  <div class="container">
-    <div class="logo">Oriental SPA</div>
-    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#booking">Book</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="hero">
-  <div class="hero-content">
-    <h1>Relax, Rejuvenate, Revive</h1>
-    <a href="#booking" class="btn-cta">Book Now</a>
-  </div>
-</div>
-<div class="container">
-  <!-- About -->
-  <section id="about">
-    <h2>About Us</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;">
-      <picture style="flex:1;min-width:280px;">
-        <img src="Poster1.png" loading="lazy" alt="Spa promotion poster" style="width:100%;border-radius:8px;"/>
-      </picture>
-      <div style="flex:1;min-width:280px;">
-        <p>Welcome to <strong>Oriental SPA</strong>, your premier destination for therapeutic and relaxing bodywork in Richardson, TX. Our skilled therapists specialize in a range of techniques designed to relieve tension, reduce stress, and restore your natural balance. Book your personalized session today and feel the warmth of our care.</p>
+  <!-- ---------- Header ---------- -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">Oriental SPA</div>
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#booking">Book</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ---------- Hero ---------- -->
+  <section class="hero">
+    <img src="TX MSG.webp" alt="Warm, soothing massage session"/>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Relax • Rejuvenate • Revive</h1>
+      <a href="#booking" class="btn-cta">Book Now</a>
+    </div>
+  </section>
+
+  <!-- ---------- Main Content ---------- -->
+  <main class="container">
+    <!-- About -->
+    <section id="about">
+      <h2>About Us</h2>
+
+      <!-- 左图 + 右文 -->
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;">
+        <picture style="flex:1;min-width:280px;">
+          <img src="Poster1.png" alt="Spa promotion poster" loading="lazy" style="width:100%;border-radius:8px;"/>
+        </picture>
+
+        <div style="flex:1;min-width:280px;">
+          <p>Welcome to <strong>Oriental SPA</strong>, your destination for therapeutic and relaxing bodywork in Richardson, TX. From shoulder‑neck pain and poor sleep to chronic fatigue, our therapists use cupping, gua sha, reflexology and targeted acupressure to promote long‑term wellness. Every session is tailored to your body’s needs.</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services-list">
-      <div class="service"><h3>Swedish Massage</h3><p>Gentle, full-body relaxation massage to improve circulation and ease muscle tension.</p></div>
-      <div class="service"><h3>Deep Tissue Massage</h3><p>Targeted pressure to release chronic muscle tension and improve flexibility.</p></div>
-      <div class="service"><h3>Thai Massage</h3><p>Traditional stretching and compression techniques to energize the body and boost energy flow.</p></div>
-      <div class="service"><h3>Foot Reflexology</h3><p>Focused foot massage to promote healing and relaxation throughout the body by stimulating reflex points.</p></div>
-    </div>
-  </section>
+      <!-- 顺序淡入 Gallery -->
+      <div class="gallery fade-seq">
+        <img src="P1.webp" alt="Cozy treatment room" loading="lazy"/>
+        <img src="P2.webp" alt="Foot reflexology area" loading="lazy"/>
+        <img src="P3.webp" alt="Deep‑tissue promo poster" loading="lazy"/>
+        <img src="P4.webp" alt="Thai massage stretching poster" loading="lazy"/>
+      </div>
+    </section>
 
-  <!-- CTA banner -->
-  <div class="cta-banner" style="background:none;padding:2rem 1rem;margin:2rem 0;">
-    <p style="font-size:1.5rem;color:var(--color-secondary);font-weight:500;margin-bottom:1rem;">📞 Call or Text MSG to schedule your visit</p>
-    <p style="font-size:1rem;color:var(--color-text);font-style:italic;margin-bottom:1.5rem;">Clear communication, fast response — no more confusion.</p>
-    <a href="tel:+14693357606" class="btn-cta">Call Now</a>
-  </div>
+    <!-- Reviews -->
+    <section id="reviews">
+      <h2>What Guests Say</h2>
+      <div class="reviews">
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Best massage I’ve had in years. The therapist listened carefully and the cupping worked wonders.”<br><strong>— Emily R.</strong></p>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Clean, calming space. I left feeling refreshed and pain‑free. Already booked my next visit!”<br><strong>— Carlos M.</strong></p>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Professional staff, fair prices, and the hot‑stone add‑on is heavenly.”<br><strong>— Sophia L.</strong></p>
+        </article>
+      </div>
+    </section>
 
-  <!-- Pricing -->
-  <section id="pricing">
-    <h2>Massage Pricing</h2>
-    <p>Relax, Rejuvenate, and Heal at ORIENTAL SPA</p>
+    <!-- Services -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <div class="service"><h3>Swedish Massage</h3><p>Gentle full‑body relaxation to boost circulation and ease tension.</p></div>
+        <div class="service"><h3>Deep Tissue Massage</h3><p>Targeted pressure to release chronic knots and improve mobility.</p></div>
+        <div class="service"><h3>Thai Massage</h3><p>Stretching and compression techniques to energize and restore balance.</p></div>
+        <div class="service"><h3>Foot Reflexology</h3><p>Stimulate reflex points to promote healing throughout the body.</p></div>
+      </div>
+    </section>
 
-    <h3>Body Massage</h3>
-    <div class="price-cards">
-      <div class="card"><span>30 mins</span><strong>$50</strong><em>4‑hands $100</em></div>
-      <div class="card"><span>60 mins</span><strong>$70</strong><em>4‑hands $140</em></div>
-      <div class="card"><span>75 mins</span><strong>$95</strong><em>4‑hands $180</em></div>
-      <div class="card"><span>90 mins</span><strong>$120</strong><em>4‑hands $220</em></div>
-    </div>
+    <!-- Pricing -->
+    <section id="pricing">
+      <h2>Massage Pricing</h2>
+      <p>Relax, Rejuvenate, and Heal at ORIENTAL SPA</p>
 
-    <h3>Lomi Lomi Massage</h3>
-    <p><em>Hawaii Reflection and Healing Massage with a lot of oil</em></p>
-    <div class="price-cards">
-      <div class="card"><span>60 mins</span><strong>$90</strong><em>4‑hands $170</em></div>
-      <div class="card"><span>90 mins</span><strong>$130</strong><em>4‑hands $240</em></div>
-    </div>
+      <h3>Body Massage</h3>
+      <div class="price-cards">
+        <div class="card"><span>30 mins</span><strong>$50</strong><em>4‑hands $100</em></div>
+        <div class="card"><span>60 mins</span><strong>$70</strong><em>4‑hands $140</em></div>
+        <div class="card"><span>75 mins</span><strong>$95</strong><em>4‑hands $180</em></div>
+        <div class="card"><span>90 mins</span><strong>$120</strong><em>4‑hands $220</em></div>
+      </div>
 
-    <h3>Thai Massage</h3>
-    <div class="price-cards">
-      <div class="card"><span>30 mins</span><strong>$60</strong><em>4‑hands $120</em></div>
-      <div class="card"><span>60 mins</span><strong>$80</strong><em>4‑hands $150</em></div>
-      <div class="card"><span>75 mins</span><strong>$100</strong><em>4‑hands $200</em></div>
-      <div class="card"><span>90 mins</span><strong>$130</strong><em>4‑hands $240</em></div>
-    </div>
+      <h3>Lomi Lomi Massage</h3>
+      <p><em>Hawaiian oil‑based healing massage</em></p>
+      <div class="price-cards">
+        <div class="card"><span>60 mins</span><strong>$90</strong><em>4‑hands $170</em></div>
+        <div class="card"><span>90 mins</span><strong>$130</strong><em>4‑hands $240</em></div>
+      </div>
 
-    <h3>Combination Package</h3>
-    <p>30 Mins Back + 30 Mins Head, Neck, Shoulders, and Foot Bath<br/><strong>60 Mins — $60</strong></p>
-    <h4>Add-ons:</h4>
-    <ul>
-      <li>Sea Salt Scrub — +$10</li>
-      <li>Sugar Scrub — +$10</li>
-    </ul>
-    <h4>Enhancements:</h4>
-    <ul>
-      <li>CBD — +$15</li>
-      <li>Cupping — +$20 <em>(Includes free hot stone + essential oil)</em></li>
-    </ul>
-  </section>
+      <h3>Thai Massage</h3>
+      <div class="price-cards">
+        <div class="card"><span>30 mins</span><strong>$60</strong><em>4‑hands $120</em></div>
+        <div class="card"><span>60 mins</span><strong>$80</strong><em>4‑hands $150</em></div>
+        <div class="card"><span>75 mins</span><strong>$100</strong><em>4‑hands $200</em></div>
+        <div class="card"><span>90 mins</span><strong>$130</strong><em>4‑hands $240</em></div>
+      </div>
 
-  <!-- Booking -->
-  <section id="booking">
-    <div class="booking-wrapper">
-      <h2>Book Your Massage Online</h2>
-      <p>Easily schedule your visit with Oriental SPA using our online booking system.</p>
-      <a href="https://orientalspasrkq.setmore.com" target="_blank" class="btn-cta">Open Booking Page</a>
-      <iframe src="https://orientalspasrkq.setmore.com"></iframe>
-    </div>
-  </section>
+      <h3>Combination Package</h3>
+      <p>30 mins Back + 30 mins Head/Neck/Shoulders &amp; Foot Bath — <strong>60 mins $60</strong></p>
+      <h4>Add‑ons:</h4>
+      <ul><li>Sea Salt Scrub — +$10</li><li>Sugar Scrub — +$10</li></ul>
+      <h4>Enhancements:</h4>
+      <ul><li>CBD — +$15</li><li>Cupping — +$20 <em>(includes hot‑stone &amp; essential‑oil)</em></li></ul>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" style="margin-top:3rem;">
-    <h2>Contact &amp; Location</h2>
-    <iframe loading="lazy" src="https://www.google.com/maps?q=648+W+Campbell+Rd+Suite+D+Richardson+TX+75080&output=embed"></iframe>
-    <div class="contact-info">
-      <p><strong>Address:</strong> 648 W Campbell Rd, Suite D, Richardson, TX 75080</p>
-      <p><strong>Hours:</strong> Mon–Sun: 9:30 AM – 9:00 PM</p>
-    </div>
-  </section>
-</div>
-<footer>
-  License # 12345678  |  Languages: EN ES | Follow us: [Social Icons]<br/>
-  © 2025 Oriental SPA. All rights reserved.
-</footer>
+    <!-- Booking -->
+    <section id="booking">
+      <div class="booking-wrapper">
+        <h2>Book Your Massage Online</h2>
+        <p>Easily schedule your visit using our online booking system.</p>
+        <a href="https://orientalspasrkq.setmore.com" target="_blank" class="btn-cta">Open Booking Page</a>
+        <iframe loading="lazy" src="https://orientalspasrkq.setmore.com/#book" allowtransparency="true"></iframe>
+      </div>
+    </section>
 
-<!-- Scripts -->
-<script defer>
-  document.addEventListener('DOMContentLoaded',()=>{
-    const header=document.getElementById('header');
-    const menuToggle=document.getElementById('menu-toggle');
-    const nav=document.querySelector('header nav');
-    const toTop=document.createElement('button');
-    toTop.id='toTop';toTop.textContent='↑';document.body.appendChild(toTop);
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact &amp; Location</h2>
+      <iframe loading="lazy" src="https://www.google.com/maps?q=648+W+Campbell+Rd+Suite+D+Richardson+TX+75080&output=embed"></iframe>
+      <div class="contact-info">
+        <p><strong>Phone:</strong> <a href="tel:+14693357606">+1 469‑335‑7606</a></p>
+        <p><strong>Hours:</strong> Mon–Sun 9:30 AM – 9:00 PM</p>
+        <p><strong>Address:</strong> 648 W Campbell Rd, Suite D, Richardson, TX 75080</p>
+      </div>
+    </section>
+  </main>
 
-    window.addEventListener('scroll',()=>{
-      header.classList.toggle('shrink',window.scrollY>50);
-      toTop.classList.toggle('show',window.scrollY>600);
+  <!-- ---------- Footer ---------- -->
+  <footer>
+    License #12345678 | Languages: EN ES | © 2025 Oriental SPA. All rights reserved.
+  </footer>
+
+  <!-- ---------- Scripts ---------- -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('header');
+      const menuBtn = document.getElementById('menu-toggle');
+      const nav = document.querySelector('header nav');
+      const toTop = document.createElement('button');
+      toTop.id = 'toTop'; toTop.textContent = '↑';
+      document.body.appendChild(toTop);
+
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('shrink', window.scrollY > 50);
+        toTop.classList.toggle('show', window.scrollY > 600);
+      });
+
+      menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     });
+  </script>
 
-    menuToggle.addEventListener('click',()=>{nav.classList.toggle('open');});
-    toTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
-  });
-</script>
+  <!-- ---------- JSON‑LD ---------- -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Oriental SPA",
+    "image":"https://orientalspa.org/TX MSG.webp",
+    "url":"https://orientalspa.org/",
+    "telephone":"+1 469‑335‑7606",
+    "priceRange":"$$",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"648 W Campbell Rd Suite D",
+      "addressLocality":"Richardson",
+      "addressRegion":"TX",
+      "postalCode":"75080",
+      "addressCountry":"US"
+    },
+    "geo":{"@type":"GeoCoordinates","latitude":32.975,"longitude":-96.738},
+    "openingHoursSpecification":[{
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens":"09:30","closes":"21:00"
+    }],
+    "sameAs":["https://g.page/oriental-spa-richardson"]
+  }
+  </script>
 </body>
 </html>
