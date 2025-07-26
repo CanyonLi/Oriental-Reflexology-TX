@@ -18,243 +18,144 @@
 <meta property="business:contact_data:postal_code" content="75080"/>
 <meta property="business:contact_data:phone_number" content="+1 469-335-7606"/>
 <style>
-    :root {
-      --color-bg: #FFE5D0;
-      --color-text: #4E342E;
-      --color-accent: #D84343;
-      --color-secondary: #455A64;
-      --color-white: #FFF8F0;
-      --font-body: 'Inter', sans-serif;
-      --font-heading: 'Playfair Display', serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: var(--font-body);
-      line-height: 1.5;
-      color: var(--color-text);
-      background: var(--color-white);
-    }
-    a { color: var(--color-accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  :root {
+    --color-bg: #FFE5D0;
+    --color-text: #4E342E;
+    --color-accent: #D84343;
+    --color-secondary: #455A64;
+    --color-white: #FFF8F0;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--font-body);
+    line-height:1.5;
+    color:var(--color-text);
+    background:var(--color-white);
+  }
+  a{color:var(--color-accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
 
-    /* Header */
-    header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 100;
-      transition: padding 0.3s;
-    }
-    header.shrink { padding: 0.5rem 2rem; }
-    header .container {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem;
-    }
-    .logo { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); }
+  /* Header */
+  header{
+    position:fixed;top:0;left:0;width:100%;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:100;
+    transition:padding .3s;
+  }
+  header.shrink{padding:.5rem 2rem;}
+  header .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;}
+  .logo{font-family:var(--font-heading);font-size:1.75rem;color:var(--color-accent);}
 
-    /* Mobile menu toggle */
-    #menu-toggle {
-      display:none;
-      font-size:1.75rem;
-      background:none;
-      border:none;
-      color:var(--color-secondary);
-      cursor:pointer;
-    }
+  /* Mobile menu */
+  #menu-toggle{display:none;font-size:1.75rem;background:none;border:none;color:var(--color-secondary);cursor:pointer;}
+  nav ul{list-style:none;display:flex;gap:1.5rem;}
+  nav a{font-weight:600;color:var(--color-secondary);}
+  @media(max-width:640px){
+    nav ul{display:none;flex-direction:column;gap:1rem;margin-top:.5rem;}
+    #menu-toggle{display:block;}
+    nav.open ul{display:flex;}
+  }
 
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a { font-weight: 600; color: var(--color-secondary); }
+  /* Hero */
+  .hero{
+    position:relative;
+    background:url('TX MSG.png') center/cover no-repeat;
+    height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:4rem;
+  }
+  .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(rgba(78,52,46,.6),rgba(69,90,100,.6));}
+  .hero-content{position:relative;z-index:2;text-align:center;}
+  .hero-content h1{font-family:var(--font-heading);font-size:3.5rem;color:var(--color-white);letter-spacing:.1em;text-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .hero-content .btn-cta{margin-top:2rem;}
+  @media(min-width:1440px){.hero-content h1{font-size:4.5rem;}}
 
-    @media(max-width:640px){
-      nav ul{display:none;flex-direction:column;gap:1rem;margin-top:.5rem;}
-      #menu-toggle{display:block;}
-      nav.open ul{display:flex;}
-    }
+  .container{max-width:960px;margin:2rem auto;padding:0 1rem;}
+  h2{font-family:var(--font-heading);font-size:2.25rem;margin-bottom:1rem;color:var(--color-secondary);}  p{margin-bottom:1rem;}
 
-    /* Hero */
-    .hero {
-      position: relative;
-      background: url('TX MSG.png') center/cover no-repeat;
-      height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 4rem;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(rgba(78,52,46,0.6), rgba(69,90,100,0.6));
-    }
-    .hero h1 {
-      position: relative;
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      color: var(--color-white);
-      letter-spacing: 0.1em;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-    @media(min-width:1440px){
-      .hero h1{font-size:4.5rem;}
-    }
+  /* Services */
+  .services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+  .service{background:var(--color-white);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:1.5rem;text-align:center;transition:transform .3s,box-shadow .3s;}
+  .service:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12);}  .service h3::before{content:'';display:block;width:40px;height:40px;background:url('icon-placeholder.svg') center/contain no-repeat;margin:0 auto .5rem;}
 
-    .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-    h2 { font-family: var(--font-heading); font-size: 2.25rem; margin-bottom: 1rem; color: var(--color-secondary); }
-    p { margin-bottom: 1rem; }
+  /* CTA Banner */
+  .cta-banner{background:var(--color-secondary);background-image:url('grain-texture.png');color:var(--color-white);text-align:center;padding:3rem 1rem;margin:3rem 0;}
+  .cta-banner h2{font-family:'Brush Script MT',cursive;font-size:2.5rem;margin-bottom:.5rem;}
+  .cta-banner p{margin-bottom:1.25rem;}
+  .cta-banner .btn{background:var(--color-white);color:var(--color-secondary);padding:1rem 2rem;border-radius:10px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:background .3s,transform .3s;}
+  .cta-banner .btn:hover{background:#f5f5f5;transform:translateY(-3px);}
 
-    /* Services */
-    .services-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .service {
-      background: var(--color-white);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-    .service:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-    .service h3::before {
-      content: '';
-      display: block;
-      width: 40px; height: 40px;
-      background: url('icon-placeholder.svg') center/contain no-repeat;
-      margin: 0 auto 0.5rem;
-    }
+  /* Pricing */
+  .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:.75rem 0;}
+  .price-cards .card{padding:1rem;border-radius:8px;background:var(--color-bg);text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);transition:transform .2s;}
+  .price-cards .card:hover{transform:translateY(-4px);}  .price-cards span{display:block;font-size:.95rem;color:var(--color-secondary);}  .price-cards strong{display:block;font-size:1.2rem;margin:.25rem 0;color:var(--color-accent);}  .price-cards em{display:block;font-size:.8rem;color:var(--color-text);}  
 
-    /* CTA Banner */
-    .cta-banner {
-      background: var(--color-secondary);
-      background-image: url('grain-texture.png');
-      color: var(--color-white);
-      text-align: center;
-      padding: 3rem 1rem;
-      margin: 3rem 0;
-    }
-    .cta-banner h2 {
-      font-family: 'Brush Script MT', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .cta-banner p { margin-bottom: 1.25rem; }
-    .cta-banner .btn {
-      background: var(--color-white);
-      color: var(--color-secondary);
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s, transform 0.3s;
-    }
-    .cta-banner .btn:hover {
-      background: #f5f5f5;
-      transform: translateY(-3px);
-    }
+  /* Generic CTA Button */
+  .btn-cta{display:inline-block;margin:.5rem;padding:.75rem 1.5rem;background:var(--color-accent);color:#fff;border-radius:9999px;font-weight:600;transition:background .3s;}
+  .btn-cta:hover{background:#bf2e3a;}
 
-    /* Pricing */
-    .price-cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-      gap:1rem;
-      margin:.75rem 0;
-    }
-    .price-cards .card{
-      padding:1rem;
-      border-radius:8px;
-      background:var(--color-bg);
-      text-align:center;
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
-      transition:transform .2s;
-    }
-    .price-cards .card:hover{transform:translateY(-4px);}    
-    .price-cards span{display:block;font-size:.95rem;color:var(--color-secondary);}    
-    .price-cards strong{display:block;font-size:1.2rem;margin:.25rem 0;color:var(--color-accent);}    
-    .price-cards em{display:block;font-size:.8rem;color:var(--color-text);}    
+  /* Back to Top */
+  #toTop{position:fixed;right:1rem;bottom:1rem;display:none;padding:.6rem .8rem;border:none;border-radius:50%;background:var(--color-secondary);color:#fff;font-size:1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.15);cursor:pointer;}
+  #toTop.show{display:block;}
 
-    /* Contact CTA buttons */
-    .btn-cta{
-      display:inline-block;
-      margin:.5rem;
-      padding:.75rem 1.5rem;
-      background:var(--color-accent);
-      color:#fff;
-      border-radius:9999px;
-      font-weight:600;
-      transition:background .3s;
-    }
-    .btn-cta:hover{background:#bf2e3a;}
+  /* Booking */
+  #booking{margin-top:3rem;}
+  #booking .booking-wrapper{background:var(--color-secondary);padding:3rem 1.5rem;border-radius:12px;color:var(--color-white);box-shadow:0 6px 20px rgba(0,0,0,.1);text-align:center;}
+  #booking .booking-wrapper h2{font-family:var(--font-heading);font-size:2.5rem;margin-bottom:.5rem;}
+  #booking .booking-wrapper p{font-size:1.1rem;margin-bottom:1.5rem;}
+  #booking .booking-wrapper a.btn-cta{margin-bottom:2rem;display:inline-block;}
+  #booking iframe{width:100%;height:650px;border:none;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.1);margin-top:1.5rem;}
 
-    /* Back to Top */
-    #toTop{
-      position:fixed;
-      right:1rem;
-      bottom:1rem;
-      display:none;
-      padding:.6rem .8rem;
-      border:none;
-      border-radius:50%;
-      background:var(--color-secondary);
-      color:#fff;
-      font-size:1.1rem;
-      box-shadow:0 2px 6px rgba(0,0,0,.15);
-      cursor:pointer;
-    }
-    #toTop.show{display:block;}
+  /* Contact */
+  #contact{display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+  #contact iframe{width:100%;max-width:600px;height:350px;border:none;border-radius:8px;}
+  .contact-info{text-align:center;}
 
-    /* Contact */
-    #contact { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    #contact iframe { width: 100%; max-width: 600px; height: 350px; border: none; border-radius: 8px; }
-    .contact-info { text-align: center; }
-    .contact-info a { color: var(--color-accent); }
-
-    /* Footer */
-    footer {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--color-secondary);
-    }
-  </style>
+  /* Footer */
+  footer{background:#f4f4f4;text-align:center;padding:1.5rem;font-size:.9rem;color:var(--color-secondary);}
+</style>
 </head>
 <body>
 <header id="header">
   <div class="container">
     <div class="logo">Oriental SPA</div>
-    <!-- Mobile menu toggle button -->
     <button id="menu-toggle" aria-label="Toggle menu">☰</button>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#booking">Book</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <div class="hero">
-  <h1>Relax, Rejuvenate, Revive</h1>
+  <div class="hero-content">
+    <h1>Relax, Rejuvenate, Revive</h1>
+    <a href="#booking" class="btn-cta">Book Now</a>
+  </div>
 </div>
 <div class="container">
+  <!-- About -->
   <section id="about">
     <h2>About Us</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-      <picture style="flex:1; min-width: 280px;">
-        <!-- Fallback to PNG -->
-        <img src="Poster1.png" loading="lazy" alt="Spa promotion poster" style="width:100%; border-radius:8px;"/>
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;">
+      <picture style="flex:1;min-width:280px;">
+        <img src="Poster1.png" loading="lazy" alt="Spa promotion poster" style="width:100%;border-radius:8px;"/>
       </picture>
-      <div style="flex:1; min-width: 280px;">
+      <div style="flex:1;min-width:280px;">
         <p>Welcome to <strong>Oriental SPA</strong>, your premier destination for therapeutic and relaxing bodywork in Richardson, TX. Our skilled therapists specialize in a range of techniques designed to relieve tension, reduce stress, and restore your natural balance. Book your personalized session today and feel the warmth of our care.</p>
       </div>
     </div>
   </section>
+
+  <!-- Services -->
   <section id="services">
     <h2>Our Services</h2>
     <div class="services-list">
@@ -264,30 +165,19 @@
       <div class="service"><h3>Foot Reflexology</h3><p>Focused foot massage to promote healing and relaxation throughout the body by stimulating reflex points.</p></div>
     </div>
   </section>
-  <div class="cta-banner" style="background: none; padding: 2rem 1rem; margin: 2rem 0;">
-    <p style="font-size: 1.5rem; color: var(--color-secondary); font-weight: 500; margin-bottom: 1rem;">
-      📞 Call or Text MSG to schedule your visit
-    </p>
-    <p style="font-size: 1rem; color: var(--color-text); font-style: italic; margin-bottom: 1.5rem;">
-      Clear communication, fast response — no more confusion.
-    </p>
-    <a href="tel:+14693357606" style="
-      font-size: 1.1rem;
-      background: var(--color-accent);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s;
-    " onmouseover="this.style.background='#bf2e3a'" onmouseout="this.style.background='var(--color-accent)'">
-      Call Now
-    </a>
-  </div>  
+
+  <!-- CTA banner -->
+  <div class="cta-banner" style="background:none;padding:2rem 1rem;margin:2rem 0;">
+    <p style="font-size:1.5rem;color:var(--color-secondary);font-weight:500;margin-bottom:1rem;">📞 Call or Text MSG to schedule your visit</p>
+    <p style="font-size:1rem;color:var(--color-text);font-style:italic;margin-bottom:1.5rem;">Clear communication, fast response — no more confusion.</p>
+    <a href="tel:+14693357606" class="btn-cta">Call Now</a>
+  </div>
+
+  <!-- Pricing -->
   <section id="pricing">
     <h2>Massage Pricing</h2>
     <p>Relax, Rejuvenate, and Heal at ORIENTAL SPA</p>
+
     <h3>Body Massage</h3>
     <div class="price-cards">
       <div class="card"><span>30 mins</span><strong>$50</strong><em>4‑hands $100</em></div>
@@ -312,8 +202,7 @@
     </div>
 
     <h3>Combination Package</h3>
-    <p>30 Mins Back + 30 Mins Head, Neck, Shoulders, and Foot Bath<br/>
-    <strong>60 Mins — $60</strong></p>
+    <p>30 Mins Back + 30 Mins Head, Neck, Shoulders, and Foot Bath<br/><strong>60 Mins — $60</strong></p>
     <h4>Add-ons:</h4>
     <ul>
       <li>Sea Salt Scrub — +$10</li>
@@ -325,15 +214,19 @@
       <li>Cupping — +$20 <em>(Includes free hot stone + essential oil)</em></li>
     </ul>
   </section>
-  <section id="booking" style="margin-top: 3rem;">
-    <div style="background: var(--color-secondary); padding: 3rem 1.5rem; border-radius: 12px; color: var(--color-white); box-shadow: 0 6px 20px rgba(0,0,0,0.1); text-align: center;">
-      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem;">Book Your Massage Online</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Easily schedule your visit with Oriental SPA using our online booking system.</p>
-      <a href="https://orientalspasrkq.setmore.com" target="_blank" class="btn-cta" style="margin-bottom: 2rem; display: inline-block;">Open Booking Page</a>
-      <iframe src="https://orientalspasrkq.setmore.com" width="100%" height="650" frameborder="0" style="border: none; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); margin-top: 1.5rem;"></iframe>
+
+  <!-- Booking -->
+  <section id="booking">
+    <div class="booking-wrapper">
+      <h2>Book Your Massage Online</h2>
+      <p>Easily schedule your visit with Oriental SPA using our online booking system.</p>
+      <a href="https://orientalspasrkq.setmore.com" target="_blank" class="btn-cta">Open Booking Page</a>
+      <iframe src="https://orientalspasrkq.setmore.com"></iframe>
     </div>
   </section>
-  <section id="contact">
+
+  <!-- Contact -->
+  <section id="contact" style="margin-top:3rem;">
     <h2>Contact &amp; Location</h2>
     <iframe loading="lazy" src="https://www.google.com/maps?q=648+W+Campbell+Rd+Suite+D+Richardson+TX+75080&output=embed"></iframe>
     <div class="contact-info">
@@ -346,32 +239,23 @@
   License # 12345678  |  Languages: EN ES | Follow us: [Social Icons]<br/>
   © 2025 Oriental SPA. All rights reserved.
 </footer>
+
 <!-- Scripts -->
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('header');
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.querySelector('header nav');
-    const toTop = document.createElement('button');
-    toTop.id = 'toTop';
-    toTop.textContent = '↑';
-    document.body.appendChild(toTop);
+  document.addEventListener('DOMContentLoaded',()=>{
+    const header=document.getElementById('header');
+    const menuToggle=document.getElementById('menu-toggle');
+    const nav=document.querySelector('header nav');
+    const toTop=document.createElement('button');
+    toTop.id='toTop';toTop.textContent='↑';document.body.appendChild(toTop);
 
-    // Header shrink
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('shrink', window.scrollY > 50);
-      toTop.classList.toggle('show', window.scrollY > 600);
+    window.addEventListener('scroll',()=>{
+      header.classList.toggle('shrink',window.scrollY>50);
+      toTop.classList.toggle('show',window.scrollY>600);
     });
 
-    // Mobile nav toggle
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-
-    // Back to top
-    toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    menuToggle.addEventListener('click',()=>{nav.classList.toggle('open');});
+    toTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
   });
 </script>
 </body>
